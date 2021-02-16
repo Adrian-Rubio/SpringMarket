@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es" xml:lang="es" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<head th:replace="~{fragmentos/imports::head}"></head>
+<body>
+
+	<nav th:replace="~{fragmentos/barra_navegacion::barra_navegacion}"></nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3 py-2" th:each="p : ${productos}">
+				<div class="jumbotron m-4 border border-dark">
+					<h2 th:text="${p.nombre}">nombre</h2>
+					<h5 th:text="'Precio: ' + ${p.precio}">precio</h5>
+					<p th:text="${p.descripcion}">descripcion</p>
+					<a th:href="@{|/producto/${p.id}|}">Ver producto</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="~{fragmentos/imports::pie}"></div>
+</body>
+
+</html>
